@@ -44,16 +44,24 @@ class App extends Component {
   .then(data => console.log(data))
  }
  */
+ componentDidMount(){
+   setTimeout(()=>{
+     this.setState({serverData: fakeServerData})
+   }, 1500);
+ }
+
 
   render() {
-    
-    let text = "Log into spotify";
-
+  
     return ( 
-      <div>
-        <Header/>
-        <MainContent/>
-      </div> 
+      <div className = "App">
+      {this.state.serverData.user ?
+        <div>
+          <Header/>
+          <MainContent/>
+        </div> : <h1>Loading ...</h1> 
+      }
+      </div>
       
     )} 
   }
